@@ -16,3 +16,32 @@ print("WordPunctTokenizer",tokenizer.tokenize(text) )
 from nltk.tokenize import sent_tokenize
 textHindi = "पवी ◌ृ हमारेसौरमंडल का तीसरा ह है, जहााँजीवन संभव है।" 
 print("sent_tokenize",sent_tokenize(textHindi))
+
+
+#'Filtration of English and Hindi Text
+def filter_text(inText, lowerFlag=False, upperFlag=False, 
+numberFlag=False, htmlFlag=False, urlFlag=False,
+punctFlag=False, spaceFlag=False, hashtagFlag=False, emojiFlag=False):
+if lowerFlag:
+inText = inText.lower()
+if upperFlag:
+inText = inText.upper()
+if numberFlag:
+import re
+inText = re.sub(r"\d+", '', inText)
+if htmlFlag:
+import re
+inText = re.sub(r'<[^>]*>', '', inText)
+if urlFlag:
+import re
+inText = re.sub(r'(https?|ftp|www)\S+', '', inText)
+if punctFlag:
+import re
+inText = re.sub(r'[^\w\s\'’-]', '', inText)
+if spaceFlag:
+import re
+inText = re.sub(' +', " ", inText).strip()
+Natural language processing
+if hashtagFlag:
+import re
+inText = re.sub(r'#\w+', '', inText)
