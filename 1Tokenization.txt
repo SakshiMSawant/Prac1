@@ -1,0 +1,18 @@
+#Write a code to demonstrate Tokenization at word and sentence level in Hindi Language
+
+!pip install nltk 
+import nltk 
+nltk.download('all')
+from nltk.tokenize import word_tokenize
+text = "पशुहमारेपया वरण का महवपणूणfहसा हऔर वेfवfभन कार के होतेह, जसै◌ेfक पालतूपशु
+और जंगल जानवर।"
+print("word_tokenize",word_tokenize(text))
+from nltk.tokenize import TreebankWordTokenizer 
+tokenizer = TreebankWordTokenizer() 
+print("TreebankWordTokenizer",tokenizer.tokenize(text))
+from nltk.tokenize import WordPunctTokenizer 
+tokenizer = WordPunctTokenizer() 
+print("WordPunctTokenizer",tokenizer.tokenize(text) )
+from nltk.tokenize import sent_tokenize
+textHindi = "पवी ◌ृ हमारेसौरमंडल का तीसरा ह है, जहााँजीवन संभव है।" 
+print("sent_tokenize",sent_tokenize(textHindi))
